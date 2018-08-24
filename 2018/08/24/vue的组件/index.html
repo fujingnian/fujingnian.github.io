@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
   <title>vue的组件 | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；">
+  <meta name="description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可； 组件化和模块化的不同： 模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue的组件">
 <meta property="og:url" content="https://github.com/fujingnian/2018/08/24/vue的组件/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；">
+<meta property="og:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可； 组件化和模块化的不同： 模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-24T12:08:45.563Z">
+<meta property="og:updated_time" content="2018-08-24T16:00:35.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的组件">
-<meta name="twitter:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；">
+<meta name="twitter:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可； 组件化和模块化的不同： 模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
   
   
     <link rel="icon" href="/assets/img/timg.gif">
@@ -188,13 +188,14 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Vue组件"><a href="#Vue组件" class="headerlink" title="Vue组件"></a>Vue组件</h2><ul>
-<li>组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；<a id="more"></a></li>
+<li>组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；</li>
 <li>组件化和模块化的不同：<ul>
 <li>模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一；</li>
 <li>组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；</li>
 </ul>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="全局组件定义的三种方式"><a href="#全局组件定义的三种方式" class="headerlink" title="全局组件定义的三种方式"></a>全局组件定义的三种方式</h3><p>1.使用 Vue.extend 配合 Vue.component 方法：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var login = Vue.extend(&#123;</span><br><span class="line">      template: &apos;&lt;h1&gt;登录&lt;/h1&gt;&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">    Vue.component(&apos;login&apos;, login);</span><br></pre></td></tr></table></figure></p>
 <p>2.直接使用 Vue.component 方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;register&apos;, &#123;</span><br><span class="line">      template: &apos;&lt;h1&gt;注册&lt;/h1&gt;&apos;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
 <p>3.将模板字符串，定义到script标签种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=&quot;tmpl&quot; type=&quot;x-template&quot;&gt;</span><br><span class="line">      &lt;div&gt;&lt;a href=&quot;#&quot;&gt;登录&lt;/a&gt; | &lt;a href=&quot;#&quot;&gt;注册&lt;/a&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
