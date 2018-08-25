@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
   <title>vue的组件 | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可； 组件化和模块化的不同： 模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
+  <meta name="description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可.">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue的组件">
-<meta property="og:url" content="https://github.com/fujingnian/2018/08/24/vue的组件/index.html">
+<meta property="og:url" content="https://github.com/fujingnian/2018/08/25/vue的组件/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可； 组件化和模块化的不同： 模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
+<meta property="og:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-24T16:00:35.576Z">
+<meta property="og:updated_time" content="2018-08-25T00:34:33.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的组件">
-<meta name="twitter:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可； 组件化和模块化的不同： 模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
+<meta name="twitter:description" content="Vue组件 组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可.">
+  
+    <link rel="alternative" href="/atom.xml" title="JingNian&#39;s Notes" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/img/timg.gif">
@@ -32,6 +34,19 @@
     }
   </style>
   
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'false', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
 
   
 <script>
@@ -70,7 +85,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/photos">相册</a></li>
+				<li><a href="#">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -81,7 +96,7 @@ var _hmt = _hmt || [];
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">联系我</a>
     			
             
     			
@@ -96,9 +111,9 @@ var _hmt = _hmt || [];
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="mail" target="_blank" href="#" title="mail"><i class="icon-mail"></i></a>
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -139,9 +154,9 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="mail" target="_blank" href="#" title="mail"><i class="icon-mail"></i></a>
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -152,7 +167,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/photos">相册</a></li>
+					<li style="width: 50%"><a href="#">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,8 +194,8 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/08/24/vue的组件/" class="archive-article-date">
-  	<time datetime="2018-08-24T11:57:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+        <a href="/2018/08/25/vue的组件/" class="archive-article-date">
+  	<time datetime="2018-08-25T00:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
 </a>
         
       </header>
@@ -188,14 +203,16 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Vue组件"><a href="#Vue组件" class="headerlink" title="Vue组件"></a>Vue组件</h2><ul>
-<li>组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；</li>
+<li>组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可.</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>组件化和模块化的不同：<ul>
 <li>模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一；</li>
 <li>组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；</li>
 </ul>
 </li>
 </ul>
-<a id="more"></a>
 <h3 id="全局组件定义的三种方式"><a href="#全局组件定义的三种方式" class="headerlink" title="全局组件定义的三种方式"></a>全局组件定义的三种方式</h3><p>1.使用 Vue.extend 配合 Vue.component 方法：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var login = Vue.extend(&#123;</span><br><span class="line">      template: &apos;&lt;h1&gt;登录&lt;/h1&gt;&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">    Vue.component(&apos;login&apos;, login);</span><br></pre></td></tr></table></figure></p>
 <p>2.直接使用 Vue.component 方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;register&apos;, &#123;</span><br><span class="line">      template: &apos;&lt;h1&gt;注册&lt;/h1&gt;&apos;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
 <p>3.将模板字符串，定义到script标签种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=&quot;tmpl&quot; type=&quot;x-template&quot;&gt;</span><br><span class="line">      &lt;div&gt;&lt;a href=&quot;#&quot;&gt;登录&lt;/a&gt; | &lt;a href=&quot;#&quot;&gt;注册&lt;/a&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
@@ -335,7 +352,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/08/24/vue的组件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/08/25/vue的组件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -397,7 +414,7 @@ var _hmt = _hmt || [];
     		&copy; 2018 傅经年
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+          <span>If I should see you，after long year</span>
       	</div>
     </div>
   </div>
@@ -420,7 +437,7 @@ var _hmt = _hmt || [];
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: ,
+		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -461,7 +478,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">联系我</a></li>
       
         
       
@@ -543,10 +560,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="https://github.com/fujingnian" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="/jingnian.fu@gmail.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>邮箱</a>
             </li>
           
             <li class="search-li">
