@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
-  <title>Tag: webpack | JingNian&#39;s Notes</title>
+  <title>node-mysql | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,极客,代码,开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JingNian&#39;s Notes">
-<meta property="og:url" content="https://github.com/fujingnian/tags/webpack/index.html">
+  <meta name="description" content="安装1npm install mysql">
+<meta name="keywords" content="node,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node-mysql">
+<meta property="og:url" content="https://github.com/fujingnian/2018/08/26/node-mysql/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
+<meta property="og:description" content="安装1npm install mysql">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/fujingnian/2018/08/26/media/connection-pool.png">
+<meta property="og:updated_time" content="2018-08-26T10:13:21.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JingNian&#39;s Notes">
-<meta name="twitter:description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
+<meta name="twitter:title" content="node-mysql">
+<meta name="twitter:description" content="安装1npm install mysql">
+<meta name="twitter:image" content="https://github.com/fujingnian/2018/08/26/media/connection-pool.png">
   
     <link rel="alternative" href="/atom.xml" title="JingNian&#39;s Notes" type="application/atom+xml">
   
@@ -181,60 +184,207 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="[port]-node-mysql" class="article article-type-[port] " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-[post]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/24/webpack相关配置/" class="archive-article-date">
-  	<time datetime="2018-08-24T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/24/webpack相关配置/">webpack相关配置</a>
+    <h1 class="article-title" itemprop="name">
+      node-mysql
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/26/node-mysql/" class="archive-article-date">
+  	<time datetime="2018-08-26T10:08:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mysql</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<blockquote>
+<p>参考文档：<a href="https://github.com/mysqljs/mysql">https://github.com/mysqljs/mysql</a></p>
+</blockquote>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql      = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">var</span> connection = mysql.createConnection(&#123;</span><br><span class="line">  host     : <span class="string">'localhost'</span>,</span><br><span class="line">  user     : <span class="string">'me'</span>,</span><br><span class="line">  password : <span class="string">'secret'</span>,</span><br><span class="line">  database : <span class="string">'my_db'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">connection.connect();</span><br><span class="line"></span><br><span class="line">connection.query(<span class="string">'SELECT 1 + 1 AS solution'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'The solution is: '</span>, results[<span class="number">0</span>].solution);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">connection.end();</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>基本查询：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">connection.query(<span class="string">'SELECT * FROM `books` WHERE `author` = "David"'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// error will be an Error if one occurred during the query</span></span><br><span class="line">  <span class="comment">// results will contain the results of the query</span></span><br><span class="line">  <span class="comment">// fields will contain information about the returned results fields (if any)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>条件查询：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">connection.query(<span class="string">'SELECT * FROM `books` WHERE `author` = ?'</span>, [<span class="string">'David'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// error will be an Error if one occurred during the query</span></span><br><span class="line">  <span class="comment">// results will contain the results of the query</span></span><br><span class="line">  <span class="comment">// fields will contain information about the returned results fields (if any)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> post  = &#123;<span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">'Hello MySQL'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> query = connection.query(<span class="string">'INSERT INTO posts SET ?'</span>, post, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="comment">// Neat!</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(query.sql); <span class="comment">// INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connection.query(<span class="string">'DELETE FROM posts WHERE title = "wrong"'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'deleted '</span> + results.affectedRows + <span class="string">' rows'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connection.query(<span class="string">'UPDATE users SET foo = ?, bar = ?, baz = ? WHERE id = ?'</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, userId], <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><p><img src="../media/connection-pool.png" alt="connection-pool.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">var</span> pool  = mysql.createPool(&#123;</span><br><span class="line">  host     : <span class="string">'example.org'</span>,</span><br><span class="line">  user     : <span class="string">'bob'</span>,</span><br><span class="line">  password : <span class="string">'secret'</span>,</span><br><span class="line">  database : <span class="string">'my_db'</span>,</span><br><span class="line">  connectionLimit: <span class="number">10</span> <span class="comment">// 默认是 10 个</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">pool.getConnection(<span class="function"><span class="keyword">function</span>(<span class="params">err, connection</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Use the connection</span></span><br><span class="line">  connection.query(<span class="string">'SELECT something FROM sometable'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 释放回连接池</span></span><br><span class="line">    connection.release();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理错误</span></span><br><span class="line">    <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="封装-dbHelper-js"><a href="#封装-dbHelper-js" class="headerlink" title="封装 dbHelper.js"></a>封装 dbHelper.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pool = mysql.createPool(&#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  user: <span class="string">'root'</span>,</span><br><span class="line">  password: <span class="string">'123456'</span>,</span><br><span class="line">  database: <span class="string">'test'</span>,</span><br><span class="line">  connectionLimit: <span class="number">10</span> <span class="comment">// 默认是 10 个</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">exports.query = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 从数组中弹出最后一个元素 callback 回调函数</span></span><br><span class="line">  <span class="keyword">const</span> callback = args.pop()</span><br><span class="line"></span><br><span class="line">  pool.getConnection(<span class="function">(<span class="params">err, connection</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> callback(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    connection.query(...args, <span class="function"><span class="keyword">function</span> (<span class="params">...results</span>) </span>&#123; <span class="comment">// ...results =&gt; [err, results, fields]</span></span><br><span class="line">      <span class="comment">// 释放回连接池</span></span><br><span class="line">      connection.release()</span><br><span class="line">      <span class="comment">// 把 ...results =&gt; [err, results, fields] 展开调用 callback 继续往外抛</span></span><br><span class="line">      callback(...results)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/08/26/node-mysql/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/08/26/node-express/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          node-express
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/08/26/关于npm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于npm</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -266,9 +416,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
