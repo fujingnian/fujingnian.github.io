@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="JingNian&#39;s Notes">
 <meta property="og:description" content="摘要:git的一些基础命令。  Git常用命令 配置用户名：git config –global user.name “你的名字” 配置e-mail：git config –global user.email “你的邮箱@xx.com”">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-28T14:29:43.549Z">
+<meta property="og:updated_time" content="2018-08-29T00:44:34.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令整理">
 <meta name="twitter:description" content="摘要:git的一些基础命令。  Git常用命令 配置用户名：git config –global user.name “你的名字” 配置e-mail：git config –global user.email “你的邮箱@xx.com”">
@@ -344,15 +344,19 @@ var _hmt = _hmt || [];
 <li>git checkout –b dev</li>
 </ul>
 </li>
-<li>删除分支<ul>
-<li>git branch –d dev</li>
+<li>删除分支 =&gt; 本地<ul>
+<li>git branch -d dev</li>
+</ul>
+</li>
+<li>删除分支 =&gt; 远端<ul>
+<li>git push origin :dev</li>
 </ul>
 </li>
 <li>在分支上提交新的版本<ul>
 <li>git commit -a -m ‘dev1’</li>
 </ul>
 </li>
-<li>合并分支<ul>
+<li>合并分支 =&gt; 指定分支合并到当前分支<ul>
 <li>git merge dev</li>
 </ul>
 </li>
