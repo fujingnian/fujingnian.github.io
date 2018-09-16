@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
-  <title>Tag: vue | JingNian&#39;s Notes</title>
+  <title>原生js获取元素宽高的几种方式 | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,极客,代码,开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JingNian&#39;s Notes">
-<meta property="og:url" content="https://github.com/fujingnian/tags/vue/index.html">
+  <meta name="description" content="通过style属性 dom.style.width/height 注：只能获取到行内样式的宽和高，并且宽高不包括padding和border">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生js获取元素宽高的几种方式">
+<meta property="og:url" content="https://github.com/fujingnian/2018/09/16/原生js获取元素宽高的几种方式/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
+<meta property="og:description" content="通过style属性 dom.style.width/height 注：只能获取到行内样式的宽和高，并且宽高不包括padding和border">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-16T05:31:44.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JingNian&#39;s Notes">
-<meta name="twitter:description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
+<meta name="twitter:title" content="原生js获取元素宽高的几种方式">
+<meta name="twitter:description" content="通过style属性 dom.style.width/height 注：只能获取到行内样式的宽和高，并且宽高不包括padding和border">
   
     <link rel="alternative" href="/atom.xml" title="JingNian&#39;s Notes" type="application/atom+xml">
   
@@ -181,60 +182,202 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-原生js获取元素宽高的几种方式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-[post]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/25/vue的组件/" class="archive-article-date">
-  	<time datetime="2018-08-25T00:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/25/vue的组件/">vue的组件</a>
+    <h1 class="article-title" itemprop="name">
+      原生js获取元素宽高的几种方式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/16/原生js获取元素宽高的几种方式/" class="archive-article-date">
+  	<time datetime="2018-09-16T04:56:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="通过style属性"><a href="#通过style属性" class="headerlink" title="通过style属性"></a>通过style属性</h4><ul>
+<li>dom.style.width/height</li>
+<li>注：只能获取到行内样式的宽和高，并且宽高不包括padding和border <a id="more"></a>
+<h4 id="通过currentStyle和getComputedStyle属性"><a href="#通过currentStyle和getComputedStyle属性" class="headerlink" title="通过currentStyle和getComputedStyle属性"></a>通过currentStyle和getComputedStyle属性</h4></li>
+<li>currentStyle:该属性只兼容IE,不兼容火狐和谷歌<ul>
+<li>dom.currentStyle[height/width]  ||  dom.currentStyle.height/width</li>
+</ul>
+</li>
+<li>getComputedStyle:该属性是兼容火狐谷歌,不兼容IE<ul>
+<li>window.getComputedStyle(dom,null)[attr] ||  window.getComputedStyle(dom,null).attr</li>
+</ul>
+</li>
+<li>注：可以获取元素样式的属性值，只能获取，不能设置</li>
+</ul>
+<h4 id="通过offset方法获取"><a href="#通过offset方法获取" class="headerlink" title="通过offset方法获取"></a>通过offset方法获取</h4><ul>
+<li>dom.offsetHeight ||  dom.offsetWidth</li>
+<li>注：获取到的宽高包含padding和border</li>
+</ul>
+<h4 id="通过client方法获取"><a href="#通过client方法获取" class="headerlink" title="通过client方法获取"></a>通过client方法获取</h4><ul>
+<li>dom.clientWidth  ||  dom.clientHeight</li>
+<li>注：获取到的宽高包含padding不包含border</li>
+</ul>
+<h4 id="通过scroll方法获取"><a href="#通过scroll方法获取" class="headerlink" title="通过scroll方法获取"></a>通过scroll方法获取</h4><ul>
+<li>dom.scrollWidth ||  dom.scrollHeight</li>
+<li>注：获取到的宽高包含padding不包含border</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/09/16/原生js获取元素宽高的几种方式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/08/27/Git常用命令整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git常用命令整理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -266,9 +409,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -340,7 +483,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -349,10 +500,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
             
             <div class="clearfix"></div>
