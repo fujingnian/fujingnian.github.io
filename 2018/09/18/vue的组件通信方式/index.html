@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
-  <title>原生js获取元素宽高的几种方式 | JingNian&#39;s Notes</title>
+  <title>vue的组件通信方式 | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过style属性 dom.style.width/height 注：只能获取到行内样式的宽和高，并且宽高不包括padding和border">
-<meta name="keywords" content="js">
+  <meta name="description" content="vue中的单线数据流 数据从父级组件传递给子组件，只能单向绑定 子组件内部不能直接修改从父级传递过来的数据 父组件可随意传递数据给子组件而子组件不能更改组件中的数据">
+<meta name="keywords" content="vue、vuex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生js获取元素宽高的几种方式">
-<meta property="og:url" content="https://github.com/fujingnian/2018/09/16/原生js获取元素宽高的几种方式/index.html">
+<meta property="og:title" content="vue的组件通信方式">
+<meta property="og:url" content="https://github.com/fujingnian/2018/09/18/vue的组件通信方式/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="通过style属性 dom.style.width/height 注：只能获取到行内样式的宽和高，并且宽高不包括padding和border">
+<meta property="og:description" content="vue中的单线数据流 数据从父级组件传递给子组件，只能单向绑定 子组件内部不能直接修改从父级传递过来的数据 父组件可随意传递数据给子组件而子组件不能更改组件中的数据">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-17T15:22:37.323Z">
+<meta property="og:updated_time" content="2018-09-18T16:04:27.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生js获取元素宽高的几种方式">
-<meta name="twitter:description" content="通过style属性 dom.style.width/height 注：只能获取到行内样式的宽和高，并且宽高不包括padding和border">
+<meta name="twitter:title" content="vue的组件通信方式">
+<meta name="twitter:description" content="vue中的单线数据流 数据从父级组件传递给子组件，只能单向绑定 子组件内部不能直接修改从父级传递过来的数据 父组件可随意传递数据给子组件而子组件不能更改组件中的数据">
   
     <link rel="alternative" href="/atom.xml" title="JingNian&#39;s Notes" type="application/atom+xml">
   
@@ -182,53 +182,63 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-原生js获取元素宽高的几种方式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue的组件通信方式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      原生js获取元素宽高的几种方式
+      vue的组件通信方式
     </h1>
   
 
         
-        <a href="/2018/09/16/原生js获取元素宽高的几种方式/" class="archive-article-date">
-  	<time datetime="2018-09-16T04:56:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
+        <a href="/2018/09/18/vue的组件通信方式/" class="archive-article-date">
+  	<time datetime="2018-09-18T14:31:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="通过style属性"><a href="#通过style属性" class="headerlink" title="通过style属性"></a>通过style属性</h4><ul>
-<li>dom.style.width/height</li>
-<li>注：只能获取到行内样式的宽和高，并且宽高不包括padding和border </li>
+        <h4 id="vue中的单线数据流"><a href="#vue中的单线数据流" class="headerlink" title="vue中的单线数据流"></a>vue中的单线数据流</h4><ul>
+<li>数据从父级组件传递给子组件，只能单向绑定</li>
+<li>子组件内部不能直接修改从父级传递过来的数据</li>
+<li>父组件可随意传递数据给子组件而子组件不能更改组件中的数据</li>
 </ul>
 <a id="more"></a>
-<h4 id="通过currentStyle和getComputedStyle属性"><a href="#通过currentStyle和getComputedStyle属性" class="headerlink" title="通过currentStyle和getComputedStyle属性"></a>通过currentStyle和getComputedStyle属性</h4><ul>
-<li>currentStyle:该属性只兼容IE,不兼容火狐和谷歌<ul>
-<li>dom.currentStyle[height/width]  ||  dom.currentStyle.height/width</li>
+<h4 id="父子组件的通信传值方式"><a href="#父子组件的通信传值方式" class="headerlink" title="父子组件的通信传值方式"></a>父子组件的通信传值方式</h4><ul>
+<li>父组件通过props给子组件传值<ul>
+<li>props以数组形式接收数据时，不会进行数据校验</li>
+<li>props以对象形式接收数据时，可接收指定类型的数据，并且可以自定义检验规则 <ul>
+<li>验证类型：String， Number，Function， Object，Boolean，Array</li>
 </ul>
 </li>
-<li>getComputedStyle:该属性是兼容火狐谷歌,不兼容IE<ul>
-<li>window.getComputedStyle(dom,null)[attr] ||  window.getComputedStyle(dom,null).attr</li>
 </ul>
 </li>
-<li>注：可以获取元素样式的属性值，只能获取，不能设置</li>
+<li>子组件通过$emit的方式向父组件传值<ul>
+<li>使用$emit()来调用父组件中的方法，可以把数据当做函数的参数传递给父组件</li>
 </ul>
-<h4 id="通过offset方法获取"><a href="#通过offset方法获取" class="headerlink" title="通过offset方法获取"></a>通过offset方法获取</h4><ul>
-<li>dom.offsetHeight ||  dom.offsetWidth</li>
-<li>注：获取到的宽高包含padding和border</li>
+</li>
 </ul>
-<h4 id="通过client方法获取"><a href="#通过client方法获取" class="headerlink" title="通过client方法获取"></a>通过client方法获取</h4><ul>
-<li>dom.clientWidth  ||  dom.clientHeight</li>
-<li>注：获取到的宽高包含padding不包含border</li>
+<h4 id="非父子组件之间的传值方式"><a href="#非父子组件之间的传值方式" class="headerlink" title="非父子组件之间的传值方式"></a>非父子组件之间的传值方式</h4><ul>
+<li><p>bus总线机制/观察者模式</p>
+<ul>
+<li>原理：使用一个空的Vue实例作为中央事件总线</li>
+<li>生成vue实例之前，给vue的原型添加一个bus属性（vue实例对象）</li>
+<li>在组件中使用this.bus.$emit()的方式触发事件并传递参数</li>
+<li>可通过$on去监听组件触发的事件，并接受传递的参数</li>
 </ul>
-<h4 id="通过scroll方法获取"><a href="#通过scroll方法获取" class="headerlink" title="通过scroll方法获取"></a>通过scroll方法获取</h4><ul>
-<li>dom.scrollWidth ||  dom.scrollHeight</li>
-<li>注：获取到的宽高包含padding不包含border</li>
+</li>
+<li><p>vuex</p>
+<ul>
+<li>是Vue的状态管理模式</li>
+<li>state: 存放公用数据</li>
+<li>actions: 处理中心</li>
+<li>mutations: 更改state中的数据</li>
+</ul>
+</li>
 </ul>
 
       
@@ -274,7 +284,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue、vuex</a>
         		</li>
       		
 		</ul>
@@ -330,7 +340,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/09/16/原生js获取元素宽高的几种方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/09/18/vue的组件通信方式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -344,18 +354,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/09/17/js的垃圾回收机制以及内存泄露/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js的垃圾回收机制以及内存泄露
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/27/Git常用命令整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git常用命令整理</div>
+    <a href="/2018/09/17/js的垃圾回收机制以及内存泄露/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js的垃圾回收机制以及内存泄露</div>
       <i class="icon-circle-right"></i>
     </a>
   
