@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
-  <title>JingNian&#39;s Notes</title>
+  <title>HTTP协议 | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,极客,代码,开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JingNian&#39;s Notes">
-<meta property="og:url" content="https://github.com/fujingnian/index.html">
+  <meta name="description" content="基本概念 HTTP: HyperText Transfer Protocol，超文本传输协议 端与端之间的通讯协议，限制通讯内容的格式以及各项内容的含义">
+<meta name="keywords" content="http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP协议">
+<meta property="og:url" content="https://github.com/fujingnian/2018/09/19/HTTP协议/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
+<meta property="og:description" content="基本概念 HTTP: HyperText Transfer Protocol，超文本传输协议 端与端之间的通讯协议，限制通讯内容的格式以及各项内容的含义">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-19T15:35:18.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JingNian&#39;s Notes">
-<meta name="twitter:description" content="爱折腾，喜欢尝试各种新鲜玩意儿">
+<meta name="twitter:title" content="HTTP协议">
+<meta name="twitter:description" content="基本概念 HTTP: HyperText Transfer Protocol，超文本传输协议 端与端之间的通讯协议，限制通讯内容的格式以及各项内容的含义">
   
     <link rel="alternative" href="/atom.xml" title="JingNian&#39;s Notes" type="application/atom+xml">
   
@@ -181,16 +182,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-HTTP协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-HTTP协议" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/19/HTTP协议/">HTTP协议</a>
+    <h1 class="article-title" itemprop="name">
+      HTTP协议
     </h1>
   
 
@@ -207,11 +206,150 @@ var _hmt = _hmt || [];
 <li>HTTP: HyperText Transfer Protocol，超文本传输协议</li>
 <li>端与端之间的通讯协议，限制通讯内容的格式以及各项内容的含义</li>
 </ul>
-        
-          <a class="article-more-a" href="/2018/09/19/HTTP协议/#more">more >></a>
-        
+<a id="more"></a>
+<h4 id="约定的内容"><a href="#约定的内容" class="headerlink" title="约定的内容"></a>约定的内容</h4><ul>
+<li>请求 / 响应报文格式</li>
+<li>请求方法 —— GET / POST</li>
+<li>响应状态 —— 200 / 404 / 301 / 302</li>
+<li>预设的请求 / 响应头</li>
+</ul>
+<h4 id="约定的形式"><a href="#约定的形式" class="headerlink" title="约定的形式"></a>约定的形式</h4><ul>
+<li>客户端通过随机端口与服务端某个固定端口建立连接（三次握手）</li>
+<li>客户端通过这个连接 发送请求到服务端</li>
+<li>服务端监听端口得到的客户端发送过来的请求</li>
+<li>服务端通过连接响应给客户端状态和内容</li>
+</ul>
+<h4 id="请求-响应报文"><a href="#请求-响应报文" class="headerlink" title="请求 / 响应报文"></a>请求 / 响应报文</h4><ul>
+<li><p>请求报文</p>
+<ul>
+<li>请求行<ul>
+<li>HTTP方法</li>
+<li>URl地址</li>
+<li>HTTP协议版本</li>
+</ul>
+</li>
+<li>请求头<ul>
+<li>Host 请求的主机</li>
+<li>Cache-Control 控制缓存</li>
+<li>Accept 客户端想要接收的文档类型</li>
+<li>User-Agent 标识什么客户端帮你发送的这次请求</li>
+<li>Referer 这次请求的来源<ul>
+<li>图片防盗链</li>
+<li>防止CSRF(跨站请求伪造)</li>
+</ul>
+</li>
+<li>Accept-Encoding 可以接受的压缩编码</li>
+<li>Cookie 储存在用户本地终端上的数据</li>
+</ul>
+</li>
+<li>空行</li>
+<li>请求体<ul>
+<li>客户端想要发送给服务端的数据正文</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>响应报文</p>
+<ul>
+<li>状态行<ul>
+<li>HTTP 协议版本</li>
+<li>状态码</li>
+<li>状态描述</li>
+</ul>
+</li>
+<li>响应头<ul>
+<li>Date 响应时间</li>
+<li>Server 服务器信息</li>
+<li>Content-Type 响应体的内容类型</li>
+<li>Content-Length 响应的内容大小</li>
+<li>Set-Cookie 让客户端设置一个小票 </li>
+</ul>
+</li>
+<li>响应体<ul>
+<li>请求服务端想要返回给客户端的数据正文</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h4><ul>
+<li>GET 获取资源</li>
+<li>POST  传输资源</li>
+<li>PUT 更新资源</li>
+<li>DELETE 删除资源</li>
+<li>HEAD  获取报文首部</li>
+<li>GET和POST的区别<ul>
+<li>GET在浏览器中回退时无害，POST会再次提交请求</li>
+<li>GET产生的URl地址可以被浏览器收藏，POST不行</li>
+<li>GET请求会被缓存，POST需要手动设置</li>
+<li>GET请求只能进行URL编码，POST支持多种的编码格式</li>
+<li>GET有传递参数长度限制，POST没有限制</li>
+<li>GET传递的数据会在URL中，POST传递的数据放在request body中</li>
+</ul>
+</li>
+</ul>
+<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><ul>
+<li>1xx：指示信息 —— 表示请求已接收，继续处理。</li>
+<li>2xx：成功 —— 表示请求已被成功接收、理解、接受。</li>
+<li>3xx：重定向 —— 要完成请求必须进行更进一步的操作。</li>
+<li>4xx：客户端错误 —— 请求有语法错误或请求无法实现。</li>
+<li><p>5xx：服务器端错误 —— 服务器未能实现合法的请求。</p>
+</li>
+<li><p>常见状态代码</p>
+<ul>
+<li>200：客户端请求成功</li>
+<li>301：永久重定向</li>
+<li>302：临时重定向</li>
+<li>400：客户端请求有语法错误</li>
+<li>404：请求资源不存在</li>
+<li>500：服务器错误</li>
+</ul>
+</li>
+</ul>
+<h4 id="持久链接"><a href="#持久链接" class="headerlink" title="持久链接"></a>持久链接</h4><ul>
+<li>对于HTTP协议而言，它采用“请求-应答”模式，当使用普通模式时，每一个请求/应答，客户端和服务端都要新建一个链接，完成应答之后再断开</li>
+<li>HTTP协议的特点：无连接，无状态</li>
+<li>持久连接：只需要建立一条连接，然后在这条连接上 传输多个请求和响应。</li>
+<li>在HTTP1.0协议版本中，Connection:Keep-Alive表示将此条连接作为持久连接</li>
+</ul>
+<h4 id="管线化"><a href="#管线化" class="headerlink" title="管线化"></a>管线化</h4><ul>
+<li>管道化连接需要持久连接支持，把请求和响应打包传输</li>
+<li>管线化需要客户端和服务端双方都支持管线化</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -231,16 +369,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/19/HTTP协议/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/09/19/HTTP协议/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/18/vue的组件通信方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue的组件通信方式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -260,487 +457,14 @@ var _hmt = _hmt || [];
 
 
 
-
   
-    <article id="post-vue的组件通信方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/vue的组件通信方式/">vue的组件通信方式</a>
-    </h1>
   
 
-        
-        <a href="/2018/09/18/vue的组件通信方式/" class="archive-article-date">
-  	<time datetime="2018-09-18T14:31:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="vue中的单线数据流"><a href="#vue中的单线数据流" class="headerlink" title="vue中的单线数据流"></a>vue中的单线数据流</h4><ul>
-<li>数据从父级组件传递给子组件，只能单向绑定</li>
-<li>子组件内部不能直接修改从父级传递过来的数据</li>
-<li>父组件可随意传递数据给子组件而子组件不能更改组件中的数据</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/09/18/vue的组件通信方式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue、vuex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/vue的组件通信方式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js的垃圾回收机制以及内存泄露" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/17/js的垃圾回收机制以及内存泄露/">js的垃圾回收机制以及内存泄露</a>
-    </h1>
   
 
-        
-        <a href="/2018/09/17/js的垃圾回收机制以及内存泄露/" class="archive-article-date">
-  	<time datetime="2018-09-17T14:53:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="关于js的垃圾回收机制"><a href="#关于js的垃圾回收机制" class="headerlink" title="关于js的垃圾回收机制"></a>关于js的垃圾回收机制</h4><ul>
-<li>执行环境会负责管理代码执行过程中使用的内存</li>
-<li>Js具有自动垃圾回收机制</li>
-<li>回收机制的原理：<ul>
-<li>垃圾收集器会按照固定的时间间隔周期性的执行，即找出不需要继续使用的变量，然后释放内存</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/09/17/js的垃圾回收机制以及内存泄露/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/17/js的垃圾回收机制以及内存泄露/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-原生js获取元素宽高的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/16/原生js获取元素宽高的几种方式/">原生js获取元素宽高的几种方式</a>
-    </h1>
   
 
-        
-        <a href="/2018/09/16/原生js获取元素宽高的几种方式/" class="archive-article-date">
-  	<time datetime="2018-09-16T04:56:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="通过style属性"><a href="#通过style属性" class="headerlink" title="通过style属性"></a>通过style属性</h4><ul>
-<li>dom.style.width/height</li>
-<li>注：只能获取到行内样式的宽和高，并且宽高不包括padding和border </li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/09/16/原生js获取元素宽高的几种方式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/16/原生js获取元素宽高的几种方式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="[port]-Git常用命令整理" class="article article-type-[port]  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/Git常用命令整理/">Git常用命令整理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/27/Git常用命令整理/" class="archive-article-date">
-  	<time datetime="2018-08-27T06:24:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>摘要:git的一些基础命令。</p>
-</blockquote>
-<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h3><ul>
-<li>配置用户名：git config –global user.name “你的名字”</li>
-<li>配置e-mail：git config –global user.email “你的邮箱@xx.com”</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/08/27/Git常用命令整理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/27/Git常用命令整理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="[port]-关于npm" class="article article-type-[port]  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/关于npm/">关于npm</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/26/关于npm/" class="archive-article-date">
-  	<time datetime="2018-08-26T09:56:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>npm 全称 <code>Node Package Manager</code>，它的诞生是为了解决 Node 中第三方包共享的问题。<br>和浏览器一样，由于都是 JavaScript，所以前端开发也使用 npm 作为第三方包管理工具。<br>例如大名鼎鼎的 jQuery、Bootstrap 等都可以通过 npm 来安装。<br>所以官方把 npm 定义为 <code>JavaScript Package Manager</code>。</p>
-        
-          <a class="article-more-a" href="/2018/08/26/关于npm/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/26/关于npm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="[post]-webpack相关配置" class="article article-type-[post]  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/24/webpack相关配置/">webpack相关配置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/24/webpack相关配置/" class="archive-article-date">
-  	<time datetime="2018-08-24T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具</li>
-<li>运行<code>npm i webpack -g</code>全局安装webpack</li>
-<li><p>在项目根目录中运行<code>npm i webpack --save-dev</code>安装到项目依赖中</p>
-        
-          <a class="article-more-a" href="/2018/08/24/webpack相关配置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/24/webpack相关配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -772,8 +496,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
