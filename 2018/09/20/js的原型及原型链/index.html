@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/fujingnian">
-  <title>webpack相关配置 | JingNian&#39;s Notes</title>
+  <title>js的原型及原型链 | JingNian&#39;s Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具 运行npm i webpack -g全局安装webpack 在项目根目录中运行npm i webpack --save-dev安装到项目依赖中">
-<meta name="keywords" content="webpack">
+  <meta name="description" content="创建对象的几种方式 使用字面量创建对象 使用构造函数创建对象 内置构造函数 自定义构造函数   使用工厂模式">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack相关配置">
-<meta property="og:url" content="https://github.com/fujingnian/2018/08/24/webpack相关配置/index.html">
+<meta property="og:title" content="js的原型及原型链">
+<meta property="og:url" content="https://github.com/fujingnian/2018/09/20/js的原型及原型链/index.html">
 <meta property="og:site_name" content="JingNian&#39;s Notes">
-<meta property="og:description" content="webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具 运行npm i webpack -g全局安装webpack 在项目根目录中运行npm i webpack --save-dev安装到项目依赖中">
+<meta property="og:description" content="创建对象的几种方式 使用字面量创建对象 使用构造函数创建对象 内置构造函数 自定义构造函数   使用工厂模式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-26T10:13:19.306Z">
+<meta property="og:updated_time" content="2018-09-21T04:55:22.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack相关配置">
-<meta name="twitter:description" content="webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具 运行npm i webpack -g全局安装webpack 在项目根目录中运行npm i webpack --save-dev安装到项目依赖中">
+<meta name="twitter:title" content="js的原型及原型链">
+<meta name="twitter:description" content="创建对象的几种方式 使用字面量创建对象 使用构造函数创建对象 内置构造函数 自定义构造函数   使用工厂模式">
   
     <link rel="alternative" href="/atom.xml" title="JingNian&#39;s Notes" type="application/atom+xml">
   
@@ -182,63 +182,93 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="[post]-webpack相关配置" class="article article-type-[post] " itemscope itemprop="blogPost">
+            <article id="post-js的原型及原型链" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      webpack相关配置
+      js的原型及原型链
     </h1>
   
 
         
-        <a href="/2018/08/24/webpack相关配置/" class="archive-article-date">
-  	<time datetime="2018-08-24T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+        <a href="/2018/09/20/js的原型及原型链/" class="archive-article-date">
+  	<time datetime="2018-09-20T14:53:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具</li>
-<li>运行<code>npm i webpack -g</code>全局安装webpack</li>
-<li><p>在项目根目录中运行<code>npm i webpack --save-dev</code>安装到项目依赖中</p>
+        <h4 id="创建对象的几种方式"><a href="#创建对象的几种方式" class="headerlink" title="创建对象的几种方式"></a>创建对象的几种方式</h4><ul>
+<li>使用字面量创建对象</li>
+<li>使用构造函数创建对象<ul>
+<li>内置构造函数</li>
+<li>自定义构造函数</li>
+</ul>
+</li>
+<li>使用工厂模式</li>
+</ul>
 <a id="more"></a>
-<h2 id="使用webpack的配置文件简化打包时候的命令"><a href="#使用webpack的配置文件简化打包时候的命令" class="headerlink" title="使用webpack的配置文件简化打包时候的命令"></a>使用webpack的配置文件简化打包时候的命令</h2></li>
+<h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><ul>
+<li>作用：解决数据共享，节省内存空间，实现继承</li>
+<li>原型对象<ul>
+<li>实例对象的属性：<em>proto</em></li>
+<li>构造函数的属性： prototype</li>
+<li><em>proto</em>和prototype都是原型对象</li>
+<li>实例对象的<em>proto</em>原型和构造函数的prototype原型指向是相同的</li>
+<li>构造函数、实例对象、原型对象之间的关系<ul>
+<li>构造函数可以实例化对象</li>
+<li>构造函数的prototype属性，指向的是构造函数的原型对象</li>
+<li>构造函数的原型对象（prototype）中有一个构造器（constructor），这个构造器指向自己所在的的原型对象所在的构造函数</li>
+<li>实例对象的原型对象（<em>proto</em>）指向该构造函数的原型对象</li>
+<li>构造函数的原型对象（prototype）中的方法和属性可以直接被实例对象访问</li>
 </ul>
-<ol>
-<li>在项目根目录中创建<code>webpack.config.js</code></li>
-<li>由于运行webpack命令的时候，webpack需要指定入口文件和输出文件的路径，所以，我们需要在<code>webpack.config.js</code>中配置这两个路径：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 导入处理路径的模块</span><br><span class="line">  var path = require(&apos;path&apos;);</span><br><span class="line"></span><br><span class="line">// 导出一个配置对象，webpack在启动的时候，会默认来查找webpack.config.js，并读取这个文件中导出的配置对象，来进行打包处理</span><br><span class="line">module.exports = &#123;</span><br><span class="line">      entry: path.resolve(__dirname, &apos;src/js/main.js&apos;), // 项目入口文件</span><br><span class="line">      output: &#123; // 配置输出选项</span><br><span class="line">          path: path.resolve(__dirname, &apos;dist&apos;), // 配置输出的路径</span><br><span class="line">          filename: &apos;bundle.js&apos; // 配置输出的文件名</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="实现webpack的实时打包构建"><a href="#实现webpack的实时打包构建" class="headerlink" title="实现webpack的实时打包构建"></a>实现webpack的实时打包构建</h2><p>  <code>webpack-dev-server</code></p>
-<ul>
-<li>运行<code>cnpm i webpack-dev-server --save-dev</code>安装到开发依赖</li>
-<li>webpack-dev-server的相关配置<br>1.package.json文件中更改<code>scripts</code>节点<br><code>&quot;dev&quot;: &quot;webpack-dev-server --contentBase src --hot --open --port 3000&quot;</code><br>2.在webpack.config.js文件中配置  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const htmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line"></span><br><span class="line">devServer: &#123; </span><br><span class="line">    //  --open --port 3000 --contentBase src --hot</span><br><span class="line">  open: true, // 自动打开浏览器</span><br><span class="line">  port: 3000, // 设置启动时候的运行端口</span><br><span class="line">  contentBase: &apos;src&apos;, // 指定托管的根目录</span><br><span class="line">  hot: true // 启用热更新 </span><br><span class="line">&#125;,</span><br><span class="line">plugins: [ // 配置插件的节点</span><br><span class="line">    new webpack.HotModuleReplacementPlugin(),  // new 一个热更新的 模块对对象</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="使用html-webpack-plugin插件配置启动页面"><a href="#使用html-webpack-plugin插件配置启动页面" class="headerlink" title="使用html-webpack-plugin插件配置启动页面"></a>使用<code>html-webpack-plugin</code>插件配置启动页面</h2><ul>
-<li>由于使用<code>--contentBase</code>指令的过程比较繁琐，需要指定启动的目录，同时还需要修改index.html中script标签的src属性，所以推荐使用<code>html-webpack-plugin</code>插件配置启动页面.</li>
-<li>运行<code>cnpm i html-webpack-plugin --save-dev</code>安装到开发依赖</li>
-<li>修改<code>webpack.config.js</code>配置文件如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 导入处理路径的模块</span><br><span class="line">var path = require(&apos;path&apos;);</span><br><span class="line"> // 导入自动生成HTMl文件的插件</span><br><span class="line">var htmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: path.resolve(__dirname, &apos;src/js/main.js&apos;), // 项目入口文件</span><br><span class="line">    output: &#123; // 配置输出选项</span><br><span class="line">        path: path.resolve(__dirname, &apos;dist&apos;), // 配置输出的路径</span><br><span class="line">        filename: &apos;bundle.js&apos; // 配置输出的文件名</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[ // 添加plugins节点配置插件</span><br><span class="line">        new htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.resolve(__dirname, &apos;src/index.html&apos;),//模板路径</span><br><span class="line">            filename:&apos;index.html&apos;//自动生成的HTML文件的名称</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="使用webpack打包css文件"><a href="#使用webpack打包css文件" class="headerlink" title="使用webpack打包css文件"></a>使用webpack打包css文件</h2><ul>
-<li><p>使用第三方loader style-loader css-loader<br>1.运行<code>cnpm i style-loader css-loader --save-dev</code><br>2.修改<code>webpack.config.js</code>配置文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module: &#123; // 用来配置第三方loader模块的</span><br><span class="line">  rules: [ // 文件的匹配规则</span><br><span class="line">      &#123; test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] &#125;//处理css文件的规则</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.注意：<code>use</code>表示使用哪些模块来处理<code>test</code>所匹配到的文件；<code>use</code>中相关loader模块的调用顺序是从后向前调用的；</p>
 </li>
 </ul>
-<h2 id="使用webpack打包less文件"><a href="#使用webpack打包less文件" class="headerlink" title="使用webpack打包less文件"></a>使用webpack打包less文件</h2><p>  1.运行<code>cnpm i less-loader less -D</code><br>  2.修改<code>webpack.config.js</code>这个配置文件：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: /\.less$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;] &#125;,</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用webpack打包sass文件"><a href="#使用webpack打包sass文件" class="headerlink" title="使用webpack打包sass文件"></a>使用webpack打包sass文件</h2><p>  1.运行<code>cnpm i sass-loader node-sass --save-dev</code><br>  2.在<code>webpack.config.js</code>中添加处理sass文件的loader模块：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: /\.scss$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;sass-loader&apos;] &#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用webpack处理css中的路径"><a href="#使用webpack处理css中的路径" class="headerlink" title="使用webpack处理css中的路径"></a>使用webpack处理css中的路径</h2><p>  1.运行<code>cnpm i url-loader file-loader --save-dev</code><br>  2.在<code>webpack.config.js</code>中添加处理url路径的loader模块：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: /\.(png|jpg|gif)$/, use: &apos;url-loader&apos; &#125;</span><br></pre></td></tr></table></figure></p>
-<p>  3.可以通过<code>limit</code>指定进行base64编码的图片大小；只有小于指定字节（byte）的图片才会进行base64编码：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: /\.(png|jpg|gif)$/, use: &apos;url-loader?limit=43960&apos; &#125;,</span><br></pre></td></tr></table></figure></p>
-<h2 id="webapck-config-js-整体文件配置"><a href="#webapck-config-js-整体文件配置" class="headerlink" title="webapck.config.js 整体文件配置"></a>webapck.config.js 整体文件配置</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line"></span><br><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line">// 导入在内存中生成 HTML 页面的 插件</span><br><span class="line">// 只要是插件，都一定要 放到 plugins 节点中去</span><br><span class="line"></span><br><span class="line">const htmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line">  // 这个插件的两个作用：</span><br><span class="line">  //  1. 自动在内存中根据指定页面生成一个内存的页面</span><br><span class="line">  //  2. 自动把打包好的 bundle.js 追加到页面中去</span><br><span class="line">  </span><br><span class="line">  // Node 中的模块操作，向外暴露了一个 配置对象</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 手动指定 入口 和 出口</span><br><span class="line">  entry: path.join(__dirname, &apos;./src/main.js&apos;),// 入口，需要 webpack 打包的文件</span><br><span class="line">  output: &#123; // 输出文件相关的配置</span><br><span class="line">    path: path.join(__dirname, &apos;./dist&apos;), // 指定 打包好的文件，输出到哪个目录中去</span><br><span class="line">    filename: &apos;bundle.js&apos; // 指定 输出的文件的名称</span><br><span class="line">  &#125;,</span><br><span class="line">  devServer: &#123; // 配置 dev-server 命令参数的第二种形式，</span><br><span class="line">    //  --open --port 3000 --contentBase src --hot</span><br><span class="line">    open: true, // 自动打开浏览器</span><br><span class="line">    port: 3000, // 设置启动时候的运行端口</span><br><span class="line">    contentBase: &apos;src&apos;, // 指定托管的根目录</span><br><span class="line">    hot: true // 启用热更新 的 第1步</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [ // 配置插件的节点</span><br><span class="line">    new webpack.HotModuleReplacementPlugin(), // new 一个热更新的 模块对象， 这是 启用热更新的第 3 步</span><br><span class="line">    new htmlWebpackPlugin(&#123; // 创建一个 在内存中 生成 HTML  页面的插件</span><br><span class="line">      template: path.join(__dirname, &apos;./src/index.html&apos;), // 指定 模板页面，将来会根据指定的页面路径，去生成内存中的 页面</span><br><span class="line">      filename: &apos;index.html&apos; // 指定生成的页面的名称</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  module: &#123; // 这个节点用于配置 所有第三方模块 =&gt; 加载器 </span><br><span class="line">    rules: [ // 所有第三方模块的 匹配规则</span><br><span class="line">      &#123; test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] &#125;, //  配置处理 .css 文件的第三方loader 规则</span><br><span class="line">      &#123; test: /\.less$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;] &#125;, //配置处理 .less 文件的第三方 loader 规则</span><br><span class="line">      &#123; test: /\.scss$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;sass-loader&apos;] &#125;, // 配置处理 .scss 文件的 第三方 loader 规则</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="使用babel处理高级JS语法"><a href="#使用babel处理高级JS语法" class="headerlink" title="使用babel处理高级JS语法"></a>使用babel处理高级JS语法</h2><p>  1.运行<code>cnpm i babel-core babel-loader babel-plugin-transform-runtime --save-dev</code>安装babel的相关loader包<br>  2.运行<code>cnpm i babel-preset-es2015 babel-preset-stage-0 --save-dev</code>安装babel转换的语法<br>  3.在<code>webpack.config.js</code>中添加相关loader模块，其中需要注意的是，一定要把<code>node_modules</code>文件夹添加到排除项：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: /\.js$/, use: &apos;babel-loader&apos;, exclude: /node_modules/ &#125;</span><br></pre></td></tr></table></figure></p>
-<p>  4.在项目根目录中添加<code>.babelrc</code>文件，并修改这个配置文件如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;:[&quot;es2015&quot;, &quot;stage-0&quot;],</span><br><span class="line">    &quot;plugins&quot;:[&quot;transform-runtime&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><ul>
+<li>原型链：实例对象，构造函数，原型对象，以及Object之间的关系。实例对象和原型对象之间是通过原型（原型对象）来联系</li>
+<li>原型的指向<ul>
+<li>实例对象的<em>proto</em>指向构造函数中的prototype中的<em>proto</em></li>
+<li>构造函数中的<em>proto</em>指向object中的prototype中的<em>proto</em></li>
+<li>Object的prototype最终指向为null</li>
+</ul>
+</li>
+</ul>
+<h4 id="实现继承的几种方式"><a href="#实现继承的几种方式" class="headerlink" title="实现继承的几种方式"></a>实现继承的几种方式</h4><ul>
+<li>原型继承<ul>
+<li>改变原型的指向，但是继承的属性值会重复</li>
+</ul>
+</li>
+<li>借用构造函数继承<ul>
+<li>属性值不会重复，但是无法调用此对象的方法</li>
+</ul>
+</li>
+<li>组合继承<ul>
+<li>构造函数+借用构造函数实现继承</li>
+</ul>
+</li>
+<li>拷贝继承<ul>
+<li>浅拷贝</li>
+<li>深拷贝</li>
+</ul>
+</li>
+</ul>
+<h4 id="instanceOf"><a href="#instanceOf" class="headerlink" title="instanceOf"></a>instanceOf</h4><ul>
+<li>作用：用来判断实例是否是属于某个对象</li>
+<li>原理：判断实例对象<em>proto</em>和构造函数的prototype是否是同一个引用</li>
+<li>缺点：判断不严谨，只要是在同一条原型链上都会返回true</li>
+<li>判断实例是否是属于某个对象更推荐使用<code>constructor</code></li>
+</ul>
+<h4 id="改变this指向的方法"><a href="#改变this指向的方法" class="headerlink" title="改变this指向的方法"></a>改变this指向的方法</h4><ul>
+<li>call()</li>
+<li>apply()</li>
+<li>bind()</li>
+</ul>
 
       
 
@@ -283,7 +313,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -339,7 +369,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/08/24/webpack相关配置/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/fujingnian/2018/09/20/js的原型及原型链/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,15 +383,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/08/26/关于npm/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于npm
-        
-      </div>
-    </a>
   
+    <a href="/2018/09/19/HTTP协议/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP协议</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
