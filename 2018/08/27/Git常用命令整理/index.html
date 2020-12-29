@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Git常用命令整理"><meta name="keywords" content="git"><meta name="author" content="傅经年,jingnian.fu@gmail.com"><meta name="copyright" content="傅经年"><title>Git常用命令整理 | 傅经年</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.7.1'
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git常用命令"><span class="toc-number">1.</span> <span class="toc-text">Git常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与添加有关的"><span class="toc-number">2.</span> <span class="toc-text">与添加有关的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与查询有关的"><span class="toc-number">3.</span> <span class="toc-text">与查询有关的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与撤销有关的"><span class="toc-number">4.</span> <span class="toc-text">与撤销有关的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与标签有关的"><span class="toc-number">5.</span> <span class="toc-text">与标签有关的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与GitHub有关的"><span class="toc-number">6.</span> <span class="toc-text">与GitHub有关的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH-Key"><span class="toc-number">7.</span> <span class="toc-text">SSH Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一般配置"><span class="toc-number">8.</span> <span class="toc-text">一般配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建忽略文件"><span class="toc-number">9.</span> <span class="toc-text">创建忽略文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看目录"><span class="toc-number">9.1.</span> <span class="toc-text">查看目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建文件并写入内容"><span class="toc-number">9.2.</span> <span class="toc-text">创建文件并写入内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看文件内容"><span class="toc-number">10.</span> <span class="toc-text">查看文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加到暂存区中"><span class="toc-number">11.</span> <span class="toc-text">增加到暂存区中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看版本"><span class="toc-number">12.</span> <span class="toc-text">查看版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除本地文件"><span class="toc-number">13.</span> <span class="toc-text">删除本地文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除暂存区"><span class="toc-number">14.</span> <span class="toc-text">删除暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回滚版本"><span class="toc-number">15.</span> <span class="toc-text">回滚版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回滚到未来"><span class="toc-number">16.</span> <span class="toc-text">回滚到未来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理"><span class="toc-number">17.</span> <span class="toc-text">分支管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程的仓库"><span class="toc-number">18.</span> <span class="toc-text">添加远程的仓库</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/assets/img/avatar.jpg"></div><div class="author-info__name text-center">傅经年</div><div class="author-info__description text-center">爱折腾，喜欢尝试各种新鲜玩意儿</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">6</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">5</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/assets/img/blog-bg.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">傅经年</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/tags">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Git常用命令整理</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-08-27</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>摘要:git的一些基础命令。</p>
+</blockquote>
+<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h3><ul>
+<li>配置用户名：git config –global user.name “你的名字”</li>
+<li>配置e-mail：git config –global user.email “你的邮箱@xx.com”</li>
+</ul>
+<a id="more"></a> 
+<h3 id="与添加有关的"><a href="#与添加有关的" class="headerlink" title="与添加有关的"></a>与添加有关的</h3><ul>
+<li>将当前目录变为仓库：git init</li>
+<li>将文件添加到暂存区：git add 文件名 [可选：另一个文件名]</li>
+<li>git add . 添加当前文件夹所有文件</li>
+<li>将暂存区提交到仓库：git commit –m “描述”</li>
+<li>将文件直接添加到仓库去：git commit -am “描述”(新文件无法使用此命令)</li>
+</ul>
+<h3 id="与查询有关的"><a href="#与查询有关的" class="headerlink" title="与查询有关的"></a>与查询有关的</h3><ul>
+<li>查询仓库状态：git status</li>
+<li>比较文件差异（请在git add之前使用）：git diff 文件名</li>
+<li>查看仓库历史记录(详细)：git log</li>
+<li>查看仓库历史记录(单行)：git log –pretty=online 或 git log –online</li>
+<li>查看所有版本的commit ID：git reflog</li>
+</ul>
+<h3 id="与撤销有关的"><a href="#与撤销有关的" class="headerlink" title="与撤销有关的"></a>与撤销有关的</h3><ul>
+<li>撤销工作区的修改：git checkout – 文件名</li>
+<li>撤销暂存区的修改：git reset HEAD 文件名</li>
+<li>回退到历史版本：git reset –hard 该版本ID</li>
+<li>回退到上个版本：git reset –hard HEAD^</li>
+<li>上上版本是HEAD^^，也可用HEAD~2表示，以此类推</li>
+</ul>
+<h3 id="与标签有关的"><a href="#与标签有关的" class="headerlink" title="与标签有关的"></a>与标签有关的</h3><ul>
+<li>为当前版本打标签：git tag 标签名</li>
+<li>为历史版本打标签：git tag 标签名 该版本ID</li>
+<li>指定标签说明：git tag –a 标签名 –m “标签说明” [可选：版本ID]</li>
+<li>查看所有标签：git tag</li>
+<li>查看某一标签：git show 标签名</li>
+<li>删除某一标签：git tag –d 标签名</li>
+</ul>
+<h3 id="与GitHub有关的"><a href="#与GitHub有关的" class="headerlink" title="与GitHub有关的"></a>与GitHub有关的</h3><ul>
+<li>查看当前远程库：git remote</li>
+<li>查看当前远程库与链接地址：git remote -v</li>
+<li><p>提取远程仓库:</p>
+<ul>
+<li>从远程仓库下载新分支与数据：<code>git fetch [alias]</code></li>
+<li>从远端仓库提取数据并尝试合并到当前分支：<code>git merge [alias]/[分支名]</code></li>
+<li>推送到远程仓库: git push [alias] [分支名]</li>
+</ul>
+</li>
+<li><p>先有本地库，后有远程库，将本地库push到远程库</p>
+</li>
+<li><p>关联本地仓库和GitHub库：git remote add origin 网站上的仓库地址</p>
+</li>
+<li><p>第一次将本地仓库推送到GitHub上：git push –u origin master</p>
+</li>
+<li><p>先有远程库，后有本地库，从远程库clone到本地库</p>
+</li>
+<li><p>从远程库克隆到本地：git clone 网站上的仓库地址</p>
+</li>
+<li><p>网站地址可以选择HTTPS协议（<a href="https://github.com...）、SSH协议（git@github.com...）。" target="_blank" rel="noopener">https://github.com...）、SSH协议（git@github.com...）。</a></p>
+</li>
+<li>如果选择SSH协议，必须将Ubuntu的公钥添加到GitHub上。见下一步</li>
+</ul>
+<h3 id="SSH-Key"><a href="#SSH-Key" class="headerlink" title="SSH Key"></a>SSH Key</h3><ul>
+<li>生成SSH Key：ssh-keygen –t rsa –C “你的邮箱@xx.com”</li>
+<li>生成Key时弹出选项，回车选择默认即可。</li>
+<li>Key保存位置：/root/.ssh</li>
+<li><p>登陆GitHub，创建new SSH key，其内容为/root/.ssh/id_rsa.pub中文本</p>
+<p>已经有了本地库和远程库，二者实现同步</p>
+</li>
+<li><p>本地库的改动提交到远程库：git push origin master（把本地数据的提交到master分支去）</p>
+</li>
+<li>更新本地库至远程库的最新改动：git pull（把远程库更新到本地库来）</li>
+</ul>
+<h3 id="一般配置"><a href="#一般配置" class="headerlink" title="一般配置"></a>一般配置</h3><ul>
+<li>git –version   //查看git的版本信息</li>
+<li>git config –global user.name   //获取当前登录的用户</li>
+<li><p>git config –global user.email  //获取当前登录用户的邮箱<br>登录git</p>
+<blockquote>
+<p>/<em> 如果刚没有获取到用户配置，则只能拉取代码，不能修改  要是使用git，你要告诉git是谁在使用</em>/</p>
+</blockquote>
+</li>
+<li><p>git config –global user.name ‘userName’    //设置git账户，userName为你的git账号，</p>
+</li>
+<li>git config –global user.email ‘email’</li>
+<li>创建一个文件夹<br>  1 mkdir nodejs    //创建文件夹nodejs<br>  2 cd nodejs       //切换到nodejs目录下</li>
+</ul>
+<p>###初始化git仓库</p>
+<ul>
+<li>git init //在nodejs文件夹下初始化一个仓库，此时文件里会到一个.git的隐藏文件夹</li>
+</ul>
+<h3 id="创建忽略文件"><a href="#创建忽略文件" class="headerlink" title="创建忽略文件"></a>创建忽略文件</h3><ul>
+<li>touch .gitignore    //不需要服务器端提交的内容可以写到忽略文件里<blockquote>
+<p>.git<br>  .idea</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="查看目录"><a href="#查看目录" class="headerlink" title="查看目录"></a>查看目录</h4><ul>
+<li>ls -al</li>
+</ul>
+<h4 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h4><ul>
+<li>echo “hello git”  &gt; index.html </li>
+<li>将’hello git’ 写入到index.html中</li>
+<li>单个&gt;箭头表示写入， &gt;&gt;表示追加<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h3></li>
+<li>cat index.html</li>
+</ul>
+<h3 id="增加到暂存区中"><a href="#增加到暂存区中" class="headerlink" title="增加到暂存区中"></a>增加到暂存区中</h3><ul>
+<li><p>git add index.html</p>
+</li>
+<li><p>git add -A      //全部添加到缓存区增加到版本库中</p>
+</li>
+<li><p>git commit -m ‘备注信息’</p>
+<h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3></li>
+<li><p>git log –oneline</p>
+</li>
+</ul>
+<h3 id="删除本地文件"><a href="#删除本地文件" class="headerlink" title="删除本地文件"></a>删除本地文件</h3><ul>
+<li>rm fileName</li>
+</ul>
+<h3 id="删除暂存区"><a href="#删除暂存区" class="headerlink" title="删除暂存区"></a>删除暂存区</h3><ul>
+<li>保证当前工作区中没有index.html</li>
+<li>git rm index.html –cached</li>
+<li>使用–cached 表示只删除缓存区中的内容</li>
+</ul>
+<h3 id="回滚版本"><a href="#回滚版本" class="headerlink" title="回滚版本"></a>回滚版本</h3><ul>
+<li><p>回滚最近的一个版本 git log</p>
+</li>
+<li><p>git reset –hard HEAD/commit_id</p>
+</li>
+</ul>
+<h3 id="回滚到未来"><a href="#回滚到未来" class="headerlink" title="回滚到未来"></a>回滚到未来</h3><ul>
+<li>git reflog<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3></li>
+<li>创建分支<ul>
+<li>git branch dev</li>
+</ul>
+</li>
+<li>切换分支<ul>
+<li>git checkout dev</li>
+</ul>
+</li>
+<li>创建分支并切换分支<ul>
+<li>git checkout –b dev</li>
+</ul>
+</li>
+<li>删除分支 =&gt; 本地<ul>
+<li>git branch -d dev</li>
+</ul>
+</li>
+<li>删除分支 =&gt; 远端<ul>
+<li>git push origin :dev</li>
+</ul>
+</li>
+<li>在分支上提交新的版本<ul>
+<li>git commit -a -m ‘dev1’</li>
+</ul>
+</li>
+<li>合并分支 =&gt; 指定分支合并到当前分支 =&gt; 本地<ul>
+<li>git merge dev</li>
+</ul>
+</li>
+<li>合并分支 =&gt; 指定分支合并到当前分支 =&gt; 远端<ul>
+<li>git merge origin/dev</li>
+</ul>
+</li>
+<li>分支的合并后显示log<ul>
+<li>git log –oneline –graph –decorate</li>
+</ul>
+</li>
+<li>在分支开发的过程中遇到其他问题需要切换其他分支<blockquote>
+<p>保留写好的内容在切换到主干<br>  保留内容</p>
+<ul>
+<li>git stash</li>
+</ul>
+</blockquote>
+</li>
+<li>在次切换分之后需要应用一下保留的内容<ul>
+<li>git stash apply</li>
+</ul>
+</li>
+<li>丢掉保存的内容<ul>
+<li>git stash drop</li>
+</ul>
+</li>
+<li>使用并丢掉<ul>
+<li>git stash pop</li>
+</ul>
+</li>
+<li>合并分支把树杈掰到主干上<ul>
+<li>git rebase<h3 id="添加远程的仓库"><a href="#添加远程的仓库" class="headerlink" title="添加远程的仓库"></a>添加远程的仓库</h3></li>
+</ul>
+</li>
+<li>push -u</li>
+<li>u 参数 upstream</li>
+<li><p>git push origin master -u   //获取最新代码连接远程仓库</p>
+</li>
+<li><p>git remote add origin 仓库的地址</p>
+</li>
+<li>查看远程仓库<ul>
+<li>git remote -v</li>
+</ul>
+</li>
+<li>删除远程仓库<ul>
+<li>git remote rm origin</li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:jingnian.fu@gmail.com">傅经年</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/fujingnian/2018/08/27/Git常用命令整理/">https://github.com/fujingnian/2018/08/27/Git常用命令整理/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/fujingnian">傅经年</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img" src="/assets/img/alipay.jpg"><div class="post-qr-code__desc">支付宝打赏</div></div><div class="post-qr-code-item"><img class="post-qr-code__img" src="/assets/img/weixin.jpg"><div class="post-qr-code__desc">微信打赏</div></div></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/09/16/原生js获取元素宽高的几种方式/"><i class="fa fa-chevron-left">  </i><span>原生js获取元素宽高的几种方式</span></a></div><div class="next-post pull-right"><a href="/2018/08/26/关于npm/"><span>关于npm</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(/assets/img/blog-bg.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2018 - 2020 By 傅经年</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://molunerfinn.com">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
